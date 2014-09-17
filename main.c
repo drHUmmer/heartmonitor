@@ -1,6 +1,16 @@
+#include "DAC.h"
+#include "GPIO.h"
+
+void gpioInit(void);
+
+
 int main(void)
 {
-    while(1)
+	gpioInit();
+	dacInit();
+
+
+	while(1)
     {
 
     }
