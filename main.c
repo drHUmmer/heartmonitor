@@ -1,7 +1,15 @@
+#include "stm32f4xx.h"
+#include "ADC.h"
+
+
 int main(void)
 {
-    while(1)
-    {
+    adcInit();
 
+
+
+	while(1)
+    {
+		uint16_t adcData = adcGet();
     }
 }
