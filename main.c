@@ -1,12 +1,13 @@
 #include "stm32f4xx.h"
 #include "ADC.h"
-
 #include "DAC.h"
 
 
 int main(void)
 {
-    adcInit();
+    SystemInit();
+
+	adcInit();
 	dacInit();
 
 
