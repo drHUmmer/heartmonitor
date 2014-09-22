@@ -2,10 +2,10 @@
 
 int main(void)
 {
-	UART2_init(250000);
-	UART4_init(250000);
+	UART2_init(1000000);
+	UART4_init(1000000);
 
-	uint16_t teller = 0;
+	uint8_t teller = 0;
 
     while(1) {
     	UART_sendData(2, teller++);
