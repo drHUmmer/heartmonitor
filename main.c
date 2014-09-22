@@ -2,8 +2,8 @@
 
 int main(void)
 {
-	UART_init(2, 250000);
-	UART_init(4, 152000);
+	UART2_init(250000);
+	UART4_init(250000);
 
 	uint16_t teller = 0;
 
