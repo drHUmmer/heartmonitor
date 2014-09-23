@@ -1,39 +1,47 @@
 // Include the header file
 #include "UART.h"
 
-/** CAUTION **
- * Only UART2 and UART4 are working in this version of the software
- */
+/////////////
+// CAUTION //
+/////////////
+// Only UART2 and UART4 are working in this version of the software
 
-/**
- * Function that allows the user to send data using a specific UART.
- * @param uart_id		The UART number you want to use
- * @param data			THe data you want to send
- */
+/****************************************************************
+ * 				 		UART_sendData						 	*
+ * 						    			      				 	*
+ * Description: Returns the UART-name for the given "uart_id"	*
+ * 															 	*
+ * Variables:   uint8_t		uart_id                          	*
+ * Return:		USART_TypeDef*									*
+ ****************************************************************/
 void UART_sendData(uint8_t uart_id, uint16_t data) {
 	USART_TypeDef* uart_id_name = GetUARTName(uart_id); 	// Get UART ID
 	while(!(uart_id_name->SR & (1<<6)));					// While not empty wait
 	USART_SendData(uart_id_name, data);						// Send new data
 }
 
-/**
- * Get the data from a specific UART buffer
- * @param  uart_id		The UART number you want to read
- * @return				The data in the buffer
- */
+/****************************************************************
+ * 				 		UART_readData						 	*
+ * 						    			      				 	*
+ * Description: Returns the UART-name for the given "uart_id"	*
+ * 															 	*
+ * Variables:   uint8_t		uart_id                          	*
+ * Return:		uint16_t										*
+ ****************************************************************/
 uint16_t UART_readData(uint8_t uart_id) {
 	USART_TypeDef* uart_id_name = GetUARTName(uart_id);
 	return USART_ReceiveData(uart_id_name);
 }
 
-/**
- * PRIVATE FUNCTION
- * Gives functions the correct name of a UART.
- * Reason is to have more generic functions for reading and sending
- * @param  uart_id		The ID of the UART
- * @return				The name of the UART
- */
 USART_TypeDef* GetUARTName (uint8_t uart_id) {
+/****************************************************************
+ * PRIVATE FUNCTION 		GetUARTName						 	*
+ * 						    			      				 	*
+ * Description: Returns the UART-name for the given "uart_id"	*
+ * 															 	*
+ * Variables:   uint8_t		uart_id                          	*
+ * Return:		USART_TypeDef*									*
+ ****************************************************************/
 	switch(uart_id) {
 		case (2): return USART2;
 		case (4): return UART4;
@@ -44,11 +52,16 @@ USART_TypeDef* GetUARTName (uint8_t uart_id) {
 //////////////////////////////
 // INITIALISATION FUNCTIONS //
 //////////////////////////////
-/**
- * UART initialisation for the UART2.
- * @param uart_baudrate		Set the baudrate for UART2
- */
 void UART2_init(uint32_t uart_baudrate) {
+/****************************************************************
+ * 						    UART2_init      				 	*
+ * 						    			      				 	*
+ * Description: Initialises UART2 with input "uart_baudrate"	*
+ * 				as baudrate.									*
+ * 															 	*
+ * Variables:   uint32_t	uart_baudrate                      	*
+ * Return:    	void					                      	*
+ ****************************************************************/
 
 	  /* Structures */
 	  GPIO_InitTypeDef GPIO_InitStructure;
@@ -96,11 +109,16 @@ void UART2_init(uint32_t uart_baudrate) {
 	  USART_Cmd(USART2, ENABLE); 						/* Enable USART */
 }
 
-/**
- * Initialisation for UART4
- * @param uart_baudrate		Set the baudrate for UART4
- */
 void UART4_init(uint32_t uart_baudrate) {
+/****************************************************************
+ * 						    UART4_init      				 	*
+ * 						    			      				 	*
+ * Description: Initialises UART4 with input "uart_baudrate"	*
+ * 				as baudrate.									*
+ * 															 	*
+ * Variables:   uint32_t	uart_baudrate                      	*
+ * Return:    	void					                      	*
+ ****************************************************************/
 
 	  /* Structures */
 	  GPIO_InitTypeDef GPIO_InitStructure;
