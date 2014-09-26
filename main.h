@@ -7,6 +7,7 @@
 #include "ADC.h"
 #include "DAC.h"
 #include "PLL.h"
+#include "UART.h"
 
 int main(void);
 
