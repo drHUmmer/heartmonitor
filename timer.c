@@ -1,7 +1,6 @@
 #include "timer.h"
 
-
-void Timer2Init(void){
+void Timer2Init(void) {
 
 	NVICTimer2Init();
 
@@ -18,6 +17,23 @@ void Timer2Init(void){
 	TIM_ITConfig(TIM2, TIM_IT_Update, ENABLE);
 	/* TIM2 enable counter */
 	TIM_Cmd(TIM2, ENABLE);
+}
 
+void Timer4Init(void) {
 
+	NVICTimer4Init();
+
+	/* TIM2 clock enable */
+	RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM4, ENABLE); // PCLK1 = 42MHz Timer CLK =
+
+	/* Time base configuration */
+	TIM_TimeBaseInitStruct.TIM_Period 			= 8600;
+	TIM_TimeBaseInitStruct.TIM_Prescaler 		= 0;
+	TIM_TimeBaseInitStruct.TIM_ClockDivision 	= TIM_CKD_DIV1;
+	TIM_TimeBaseInitStruct.TIM_CounterMode 		= TIM_CounterMode_Down;
+	TIM_TimeBaseInit(TIM4, &TIM_TimeBaseInitStruct);
+	/* TIM IT enable */
+	TIM_ITConfig(TIM4, TIM_IT_Update, ENABLE);
+	/* TIM2 enable counter */
+	TIM_Cmd(TIM4, ENABLE);
 }

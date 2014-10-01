@@ -9,5 +9,6 @@
 TIM_TimeBaseInitTypeDef TIM_TimeBaseInitStruct;
 
 void Timer2Init(void);
+void Timer4Init(void);
 
 #endif /* TIMER_HEADER */

@@ -6,9 +6,13 @@
 #include "stm32f4xx_gpio.h"
 #include "misc.h"
 
+#include "peakDetect.h"
+
 NVIC_InitTypeDef NVIC_InitStruct;
 
 void TIM2_IRQHandler(void);
+void TIM4_IRQHandler(void);
 void NVICTimer2Init(void);
+void NVICTimer4Init(void);
 
 #endif /* INTERRUPT_HEADER */
