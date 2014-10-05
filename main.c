@@ -21,6 +21,7 @@ int main(void)
 	Timer4Init();
 	adcInit();
 	dacInit();
+	UART2_init(250000);
 
 	while(1)
     {
