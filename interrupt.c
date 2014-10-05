@@ -1,4 +1,5 @@
 #include "interrupt.h"
+#include "peakDetect.h"
 
 void TIM2_IRQHandler(void)
 {
@@ -6,6 +7,7 @@ void TIM2_IRQHandler(void)
 	{
 		TIM_ClearITPendingBit(TIM2, TIM_IT_Update);
 		GPIO_ToggleBits(GPIOD, GPIO_Pin_13);
+		peakDetect();
 	}
 }
 
@@ -13,7 +15,7 @@ void TIM4_IRQHandler(void)
 {
 	if (TIM_GetITStatus(TIM4, TIM_IT_Update) != RESET)
 	{
-		peakDetection();
+		peakDetect();
 		GPIO_ToggleBits(GPIOD, GPIO_Pin_13);
 		TIM_ClearITPendingBit(TIM4, TIM_IT_Update);
 	}

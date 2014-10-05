@@ -88,12 +88,12 @@
     <File name="cmsis_lib/source/stm32f4xx_rcc.c" path="cmsis_lib/source/stm32f4xx_rcc.c" type="1"/>
     <File name="cmsis/core_cmInstr.h" path="cmsis/core_cmInstr.h" type="1"/>
     <File name="source/main.c" path="main.c" type="1"/>
-    <File name="includes/peakDetect.h" path="../drHUmmer/peakDetect.h" type="1"/>
+    <File name="includes/peakDetect.h" path="peakDetect.h" type="1"/>
     <File name="cmsis_boot" path="" type="2"/>
     <File name="cmsis_lib/include/stm32f4xx_dac.h" path="cmsis_lib/include/stm32f4xx_dac.h" type="1"/>
     <File name="includes/UART.h" path="UART.h" type="1"/>
     <File name="cmsis_lib/include/stm32f4xx_usart.h" path="cmsis_lib/include/stm32f4xx_usart.h" type="1"/>
-    <File name="source/peakDetect.c" path="../drHUmmer/peakDetect.c" type="1"/>
+    <File name="source/peakDetect.c" path="peakDetect.c" type="1"/>
     <File name="includes/DAC.h" path="DAC.h" type="1"/>
     <File name="includes/main.h" path="main.h" type="1"/>
     <File name="source" path="" type="2"/>

@@ -10,6 +10,7 @@
 #include "UART.h"
 #include "timer.h"
 #include "interrupt.h"
+#include "peakDetect.h"
 
 int main(void);
 
