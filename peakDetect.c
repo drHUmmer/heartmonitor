@@ -10,23 +10,30 @@ void peakDetect(void) {
 	static 	uint8_t		peakDetected	= FALSE;
 			uint16_t 	adcValue 		= 0;
 	static	uint16_t	timerTicks		= 0;
+	static	uint8_t		ignorePeak		= FALSE;
 
 
-	adcValue 	= adcGet();						// Get the latest heart beat value
-	timerTicks 	++;								// Increase the timer ticks done
+	adcValue 	= adcGet();							// Get the latest heart beat value
+	timerTicks 	++;									// Increase the timer ticks done
 
 	if (peakDetected) {									// Check if there is a peakDetected active
 		if (adcValue < TRIGGER_VALUE - TRIGGER_BUFFER) {// Min value (+ buffer) reached?
 			peakDetected 	= FALSE;					// Peak has gone
 		}
 	}
-	else {										// No peak detected
-		if (adcValue >= TRIGGER_VALUE) {		// New peak detected
-			peakDetected	= TRUE;				// New peak registered
-			uint16_t BPM = BPMcalc(timerTicks);	// Calculate the BPM according to the delta timer
-			HeartBeatConverter(BPM);			// Convert BPM to analog level
-			timerTicks		= 0;				// Reset timer ticks
-/*DEBUG*/	UART_sendData(2, BPM, NO_WAIT);
+	else {											// No peak detected
+		if (adcValue >= TRIGGER_VALUE) {			// New peak detected
+			peakDetected	= TRUE;					// New peak registered
+			if (ignorePeak == FALSE) {
+				uint16_t BPM = BPMcalc(timerTicks);	// Calculate the BPM according to the delta timer
+				HeartBeatConverter(BPM);			// Convert BPM to analog level
+				timerTicks		= 0;				// Reset timer ticks
+/*DEBUG*/		UART_sendData(2, BPM, NO_WAIT);
+				
+				ignorePeak	= TRUE;					// Ignore the following peak
+			}
+			else
+				ignorePeak	= FALSE;				// On the next peak calculate new BPM
 		}
 	}
 }

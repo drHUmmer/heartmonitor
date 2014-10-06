@@ -86,11 +86,11 @@
     <File name="cmsis_boot/startup/startup_stm32f4xx.c" path="cmsis_boot/startup/startup_stm32f4xx.c" type="1"/>
     <File name="cmsis_lib/source/stm32f4xx_usart.c" path="cmsis_lib/source/stm32f4xx_usart.c" type="1"/>
     <File name="cmsis_lib/source/stm32f4xx_rcc.c" path="cmsis_lib/source/stm32f4xx_rcc.c" type="1"/>
-    <File name="cmsis/core_cmInstr.h" path="cmsis/core_cmInstr.h" type="1"/>
     <File name="source/main.c" path="main.c" type="1"/>
     <File name="includes/peakDetect.h" path="peakDetect.h" type="1"/>
-    <File name="cmsis_boot" path="" type="2"/>
+    <File name="cmsis/core_cmInstr.h" path="cmsis/core_cmInstr.h" type="1"/>
     <File name="cmsis_lib/include/stm32f4xx_dac.h" path="cmsis_lib/include/stm32f4xx_dac.h" type="1"/>
+    <File name="cmsis_boot" path="" type="2"/>
     <File name="includes/UART.h" path="UART.h" type="1"/>
     <File name="cmsis_lib/include/stm32f4xx_usart.h" path="cmsis_lib/include/stm32f4xx_usart.h" type="1"/>
     <File name="source/peakDetect.c" path="peakDetect.c" type="1"/>
@@ -108,9 +108,9 @@
     <File name="source/PLL.c" path="PLL.c" type="1"/>
     <File name="cmsis" path="" type="2"/>
     <File name="cmsis_lib/source/misc.c" path="cmsis_lib/source/misc.c" type="1"/>
-    <File name="source/DAC.c" path="DAC.c" type="1"/>
     <File name="cmsis_lib/include/stm32f4xx_tim.h" path="cmsis_lib/include/stm32f4xx_tim.h" type="1"/>
     <File name="cmsis_lib/source/stm32f4xx_adc.c" path="cmsis_lib/source/stm32f4xx_adc.c" type="1"/>
+    <File name="source/DAC.c" path="DAC.c" type="1"/>
     <File name="source/timer.c" path="timer.c" type="1"/>
     <File name="includes/interrupt.h" path="interrupt.h" type="1"/>
     <File name="cmsis_lib" path="" type="2"/>
