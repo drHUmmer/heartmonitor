@@ -9,7 +9,7 @@ void Timer2Init(void){
 	RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM2, ENABLE); // PCLK1 = 42MHz Timer CLK =
 
 	/* Time base configuration */
-	TIM_TimeBaseInitStruct.TIM_Period 			= 1000000;
+	TIM_TimeBaseInitStruct.TIM_Period 			= 1905;
 	TIM_TimeBaseInitStruct.TIM_Prescaler 		= 0;
 	TIM_TimeBaseInitStruct.TIM_ClockDivision 	= TIM_CKD_DIV1;
 	TIM_TimeBaseInitStruct.TIM_CounterMode 		= TIM_CounterMode_Down;
