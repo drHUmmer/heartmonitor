@@ -8,6 +8,7 @@
 #include "DAC.h"
 #include "PLL.h"
 #include "UART.h"
+#include "timer.h"
 
 int main(void);
 

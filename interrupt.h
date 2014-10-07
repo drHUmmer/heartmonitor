@@ -5,6 +5,13 @@
 #include "stm32f4xx_tim.h"
 #include "stm32f4xx_gpio.h"
 #include "misc.h"
+#include "DAC.h"
+
+#define FRAMES 16060
+#define TONE 0.3
+
+extern uint16_t wavFile[FRAMES];
+extern float wavCnt;
 
 NVIC_InitTypeDef NVIC_InitStruct;
 
