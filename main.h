@@ -11,6 +11,7 @@
 #include "timer.h"
 #include "interrupt.h"
 #include "peakDetect.h"
+#include "UI.h"
 
 int main(void);
 

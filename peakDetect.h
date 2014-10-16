@@ -7,12 +7,12 @@
 #include "UART.h"
 
 // Defines
-#define TRIGGER_PERCENT		75			// Trigger at 75 of max
+#define TRIGGER_PERCENT		69			// Trigger at 75 of max
 #define TRIGGER_BUFFER		50			// Trigger buffer, to avoid jitter
 #define TRIGGER_FREQ		10000		// Hz
 
-#define MAX_ADC_VALUE		65535		// 16 bit - 1
-#define MAX_DAC_VALUE		65535		// 16 bit - 1
+#define MAX_ADC_VALUE		4096		// 16 bit - 1
+#define MAX_DAC_VALUE		4096		// 16 bit - 1
 
 #define MIN_BPM_LEVEL		40			// Min BPM (0V)
 #define MAX_BPM_LEVEL		200			// Max BPM (3.3V)

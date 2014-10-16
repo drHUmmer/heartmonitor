@@ -14,16 +14,14 @@
  * Variables:   uint8_t		uart_id                          	*
  * Return:		USART_TypeDef*									*
  ****************************************************************/
-void UART_sendData(uint8_t uart_id, uint16_t data, u8 wait) {
+void UART_sendData(uint8_t uart_id, uint16_t data) {
 	USART_TypeDef* uart_id_name = GetUARTName(uart_id); 	// Get UART ID
 
-	if (wait == NO_WAIT) {
-		if (!(uart_id_name->SR & (1<<6))) {					// If data not done sending
-			return;											// Skip sending
-		}
-	}
+	if (!(uart_id_name->SR & (1<<6)))
+		return;
 
-	while (!(uart_id_name->SR & (1<<6)));					// While not empty wait
+
+	//while (!(uart_id_name->SR & (1<<6)));					// While not empty wait
 	USART_SendData(uart_id_name, data);						// Send new data
 }
 

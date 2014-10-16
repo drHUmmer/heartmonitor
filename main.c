@@ -12,19 +12,22 @@ int main(void)
 
 	GPIO_InitStructure.GPIO_Pin 				= GPIO_Pin_13;
 	GPIO_Init(GPIOD, &GPIO_InitStructure);
+//
+//	GPIO_InitStructure.GPIO_Pin 				= GPIO_Pin_14;
+//	GPIO_Init(GPIOD, &GPIO_InitStructure);
+//
+//	GPIO_ToggleBits(GPIOD, GPIO_Pin_14);
 
-	GPIO_InitStructure.GPIO_Pin 				= GPIO_Pin_14;
-	GPIO_Init(GPIOD, &GPIO_InitStructure);
-
-	GPIO_ToggleBits(GPIOD, GPIO_Pin_14);
-
-	Timer4Init();
 	adcInit();
 	dacInit();
-	UART2_init(250000);
+	Timer2Init();
+	UART2_init(256000);
+
+	int teller = 0;
 
 	while(1)
     {
+//		UART_sendData(2, teller++);
 		// La La La La
     }
 }

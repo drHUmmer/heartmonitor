@@ -21,7 +21,7 @@
 // Public functions
 void UART2_init(uint32_t uart_baudrate);
 void UART4_init(uint32_t uart_baudrate);
-void UART_sendData(uint8_t uart_id, uint16_t data, u8 wait);
+void UART_sendData(uint8_t uart_id, uint16_t data);
 uint16_t UART_readData(uint8_t uart_id);
 
 // Private function

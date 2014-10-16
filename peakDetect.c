@@ -1,8 +1,8 @@
 #include "peakDetect.h"
 
 // Private function typedefs
-static uint16_t BPMcalc(uint16_t);
-static void HeartBeatConverter (uint16_t BPM);
+uint16_t BPMcalc(uint16_t);
+void HeartBeatConverter (uint16_t BPM);
 
 
 // peakDetect
@@ -12,8 +12,9 @@ void peakDetect(void) {
 	static	uint16_t	timerTicks		= 0;
 	static	uint8_t		ignorePeak		= FALSE;
 
-
 	adcValue 	= adcGet();							// Get the latest heart beat value
+//	UART_sendData(2, ((adcValue & 0xFF0) >> 4));
+	//adcValue	= 0xf0;
 	timerTicks 	++;									// Increase the timer ticks done
 
 	if (peakDetected) {									// Check if there is a peakDetected active
@@ -28,9 +29,9 @@ void peakDetect(void) {
 				uint16_t BPM = BPMcalc(timerTicks);	// Calculate the BPM according to the delta timer
 				HeartBeatConverter(BPM);			// Convert BPM to analog level
 				timerTicks		= 0;				// Reset timer ticks
-/*DEBUG*/		UART_sendData(2, BPM, NO_WAIT);
+/*DEBUG*/		UART_sendData(2, BPM);
 				
-				ignorePeak	= TRUE;					// Ignore the following peak
+				ignorePeak	= FALSE;					// Ignore the following peak
 			}
 			else
 				ignorePeak	= FALSE;				// On the next peak calculate new BPM
@@ -38,12 +39,12 @@ void peakDetect(void) {
 	}
 }
 
-static uint16_t BPMcalc(uint16_t ticks) {
+uint16_t BPMcalc(uint16_t ticks) {
 	uint32_t	BPM = TICKS_PER_MINUTE / ticks;	// Convert ticks to BPM
 	return BPM;								// And return its value
 }
 
-static void HeartBeatConverter (uint16_t bpm) {
+void HeartBeatConverter (uint16_t bpm) {
 	u32 addPerStep 	= MAX_DAC_VALUE / DELTA_BPM_LEVEL;
 	u32	DACoutput	= (bpm - MIN_BPM_LEVEL) * addPerStep;
 	dacPut (DACoutput);

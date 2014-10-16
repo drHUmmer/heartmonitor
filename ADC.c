@@ -14,7 +14,6 @@ void adcInit(void){
 	// write access GPIO settings
 	RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOC, ENABLE);
 
-
 	GPIO_StructInit(&GPIO_InitStructure);
 
 	//for ADC1 on PC0 using IN10
